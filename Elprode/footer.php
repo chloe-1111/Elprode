@@ -11,6 +11,7 @@
         });
     </script>  
 
+
 <!--container 1: patient information -->
     <!-- Template for birthdate input-->
     <script>
@@ -73,7 +74,6 @@
             });
         });
 
-
         // Create the chart
         const canvas = document.getElementById('myChart');
         const ctx = canvas.getContext('2d');
@@ -93,7 +93,6 @@
         });
     </script>
 
-
     <!-- template for date input-->
     <script>
         document.getElementById("date").oninvalid = function (e) {
@@ -103,7 +102,6 @@
         e.target.setCustomValidity("");
     };
     </script>  
-
 
 
 <!--Container 5: Visit -->
@@ -154,7 +152,6 @@
 
     </script>
 
-
     <!-- Template for checkin date input-->
     <script>
         document.getElementById("checkin").oninvalid = function (e) {
@@ -164,7 +161,6 @@
         e.target.setCustomValidity("");
     };
     </script>  
-
 
     <!-- Template for checkout date input-->
     <script>
@@ -202,7 +198,5 @@
     });
     </script>
 
-
-</script>
 </body>
 </html>

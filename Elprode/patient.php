@@ -97,8 +97,7 @@
 
 
 <!--php: edit patient information-->
-  <?php
-
+<?php
   if (isset($_POST['updatepatient']))  {
     $firstname = $_REQUEST['firstname'];
     $lastname = $_REQUEST['lastname'];

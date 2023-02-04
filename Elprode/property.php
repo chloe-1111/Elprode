@@ -34,7 +34,7 @@
 </div>
 
 <!--popup: edit property-->
-	<div class="modal fade" id="editPropertyModal" tabindex="-1" role="dialog" aria-labelledby="editPropertyModalLabel" aria-hidden="true">
+<div class="modal fade" id="editPropertyModal" tabindex="-1" role="dialog" aria-labelledby="editPropertyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -77,8 +77,10 @@
       </div>
     </div>
   </div>
+</div>
 
 
+<!--edit property-->
 <?php
   if (isset($_POST['updateproperties'])) {
     $patientid = $_POST['patientid'];
@@ -108,7 +110,5 @@
       echo "Error: " . $e->getMessage();
     }
   }
-  
 ?>
 
-</div>

@@ -9,9 +9,10 @@
 	<!--style sheets-->
 	<link rel="shortcut icon" href="images/logo.png" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<link rel="stylesheet" href="custom/custom.css" />
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />    
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" /> 
+	<link rel="stylesheet" href="custom/custom.css" />
 
 	<!--java script-->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
@@ -23,8 +24,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>    
     <script type="text/javascript" src="http://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>    
-    <link rel="stylesheet" href="http://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />    
-
 </head>
 
 
@@ -34,7 +33,6 @@
 	
 	<!--nav bar-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-md-block">
-
 		<div class="container d-flex justify-content-center">
 
 			<a href="#list-container" class="navbar-brand d-flex align-items-center">
@@ -63,20 +61,19 @@
 </header>
 <br>
 
-
 <!--Inlcude database, patientid and json-->
 <?php
-ob_start();
-include( "templates/conn.php" );
-include ("data.php")
-
+	ob_start();
+	include( "templates/conn.php" );
+	include ("data.php")
 ?>
-
- <!--Buttons-->
+ 
 <body>
+<!--Buttons-->
 <div class="container"> 
 	<a href="search.php" class="btn btn-outline-secondary"> Return to Search</a>
 	<button type="button" class="btn btn-outline-secondary float-right" data-toggle="modal" data-target="#qrcode"> Show patient QR code </button> <br>	
+</div>
 
 <!--popup: show qr code-->
 <div class="modal fade" id="qrcode" tabindex="-1" role="dialog" aria-labelledby="qrcodeLabel" aria-hidden="true">
@@ -95,11 +92,9 @@ include ("data.php")
 	</div>
   </div>
 </div>
-</div>
 
 
 <!--container 1: patient info-->
-
 <?php
     include( "patient.php" );
   ?>

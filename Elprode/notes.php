@@ -20,7 +20,6 @@
       // exception
       echo "Error: " . $e->getMessage();
   }
-  
 ?>
 
 <!-- container6: textbox behaviour-->
@@ -47,49 +46,49 @@
 </div>
 
 <?php
-if (isset($_POST['updatebehaviour'])) {
-  $patientid = $_POST['patientid'];
-  $notes = $_POST['notes'];
-  $urgency = $_POST['urgency'];
+  if (isset($_POST['updatebehaviour'])) {
+    $patientid = $_POST['patientid'];
+    $notes = $_POST['notes'];
+    $urgency = $_POST['urgency'];
 
-  if (!empty($notes)) {
-    try {
-        // Check if the patient id exists in the notes table
-        $sql = "SELECT * FROM notes WHERE patientid = :patientid";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindValue(':patientid', $patientid);
-        $stmt->execute();
-        $result = $stmt->fetch();
+    if (!empty($notes)) {
+      try {
+          // Check if the patient id exists in the notes table
+          $sql = "SELECT * FROM notes WHERE patientid = :patientid";
+          $stmt = $conn->prepare($sql);
+          $stmt->bindValue(':patientid', $patientid);
+          $stmt->execute();
+          $result = $stmt->fetch();
 
-        if ($result) {
-            // Update the notes if the patient id exists in the notes table
-            $sql = "UPDATE notes SET notes = :notes, urgency = :urgency WHERE patientid = :patientid";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindValue(':notes', $notes);
-            $stmt->bindValue(':urgency', $urgency);
-            $stmt->bindValue(':patientid', $patientid);
-            $stmt->execute();
+          if ($result) {
+              // Update the notes if the patient id exists in the notes table
+              $sql = "UPDATE notes SET notes = :notes, urgency = :urgency WHERE patientid = :patientid";
+              $stmt = $conn->prepare($sql);
+              $stmt->bindValue(':notes', $notes);
+              $stmt->bindValue(':urgency', $urgency);
+              $stmt->bindValue(':patientid', $patientid);
+              $stmt->execute();
 
-            echo "<script>alert('Patient behavioural notes updated successfully!')</script>";
-            echo "<script>window.location.href='home.php?patientid=$patientid'</script>";
-        } else {
-            // Insert a new row into the notes table if the patient id does not exist
-            $sql = "INSERT INTO notes (patientid, notes, urgency) VALUES (:patientid, :notes, :urgency)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindValue(':patientid', $patientid);
-            $stmt->bindValue(':notes', $notes);
-            $stmt->bindValue(':urgency', $urgency);
-            $stmt->execute();
+              echo "<script>alert('Patient behavioural notes updated successfully!')</script>";
+              echo "<script>window.location.href='home.php?patientid=$patientid'</script>";
+          } else {
+              // Insert a new row into the notes table if the patient id does not exist
+              $sql = "INSERT INTO notes (patientid, notes, urgency) VALUES (:patientid, :notes, :urgency)";
+              $stmt = $conn->prepare($sql);
+              $stmt->bindValue(':patientid', $patientid);
+              $stmt->bindValue(':notes', $notes);
+              $stmt->bindValue(':urgency', $urgency);
+              $stmt->execute();
 
-            echo "<script>alert('Patient behavioural notes added successfully!')</script>";
-            echo "<script>window.location.href='home.php?patientid=$patientid'</script>";
-        }
-    } catch (PDOException $e) {
-        // Exception
-        echo "Error: " . $e->getMessage();
+              echo "<script>alert('Patient behavioural notes added successfully!')</script>";
+              echo "<script>window.location.href='home.php?patientid=$patientid'</script>";
+          }
+      } catch (PDOException $e) {
+          // Exception
+          echo "Error: " . $e->getMessage();
+      }
     }
   }
-}
 ?>
 
 
